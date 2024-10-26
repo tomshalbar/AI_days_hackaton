@@ -3,7 +3,7 @@ import requests
 from ibm_watsonx_ai import APIClient
 from ibm_watsonx_ai import Credentials
 from ibm_watsonx_ai.foundation_models import ModelInference
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -34,7 +34,7 @@ def watsonResponse():
     )
 
 
-    #generate responses.
+    #generate responses, and return a JSON
     response = data["response"]
     probability_json = {}
     for content in response:
