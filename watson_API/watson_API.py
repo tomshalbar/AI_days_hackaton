@@ -67,16 +67,19 @@ def get_watsonResponse():
     all_disasters_keys = []
     all_disaster_content = []
     for disaster, content in AI_returned_data.items():
-        all_disasters_keys.append(disaster)
-        all_disaster_content.append(content)
-    return all_disasters_keys[0], all_disaster_content[0], all_disasters_keys[1], all_disaster_content[1]
+        if content == " y" or content == " Y":
+            all_disasters_keys.append(disaster)
+            all_disaster_content.append(content)
+    print(all_disasters_keys)
+    print(all_disaster_content)
+    # return all_disasters_keys[0], all_disaster_content[0], all_disasters_keys[1], all_disaster_content[1], all_disasters_keys[2], all_disaster_content[2]
 
-        
+get_watsonResponse()
 
-@app.route("/")
-def index():
-    disaster_title, disaster_content, disaster_title2, disaster_content2 = get_watsonResponse()
-    return render_template("index.html", disaster_title = disaster_title, disaster_content = disaster_content, disaster_title2 = disaster_title2, disaster_content2 = disaster_content2)
+# @app.route("/")
+# def index():
+#     disaster_title, disaster_content, disaster_title2, disaster_content2 , disaster_title3, disaster_content3= get_watsonResponse()
+#     return render_template("index.html", disaster_title = disaster_title, disaster_content = disaster_content, disaster_title2 = disaster_title2, disaster_content2 = disaster_content2, disaster_title3 = disaster_title3, disaster_content3 = disaster_content3)
  
 
-app.run(host="0.0.0.0", port=5001)
+# app.run(host="0.0.0.0", port=5001)
