@@ -24,8 +24,9 @@ model = ModelInference(
   }
 )
 
-disaster = data["response"][1]["title"]
-print(disaster)
-prompt = f"How likely is {disaster} to be a natural disaster case?"
-print(model.generate(prompt))
-print(model.generate_text(prompt))
+response = data["response"]
+for content in response:
+    disaster = content["title"]
+    prompt = f"How likely is {disaster} to be a natural disaster case?. Please give the answer, as just one number, in the form of a probability."
+    print(model.generate(prompt))
+    print(model.generate_text(prompt))
