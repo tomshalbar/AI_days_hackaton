@@ -3,13 +3,12 @@
     overflow: hidden;
     object-position: center;
     margin-top: 50px;
-    height: 1000px;
     width: 100%;
 }
 
 .center-logo {
     position: absolute;
-    top: 280px;
+    top: 100px;
     left: 400px;
     z-index: 2;
 }
@@ -34,7 +33,7 @@ input {
 
 .container {
   margin: 24px auto;
-  max-width: 500px;
+  max-width: 1000px;
   table-layout:fixed;
 }
 
