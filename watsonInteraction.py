@@ -92,10 +92,3 @@ def create_disaster_response():
         json.dump(processedData, outfile)
 
 create_disaster_response()
-# @app.route("/")
-# def index():
-#     disaster_title, disaster_content, disaster_title2, disaster_content2 , disaster_title3, disaster_content3= create_disaster_response()
-#     return render_template("index.html", disaster_title = disaster_title, disaster_content = disaster_content, disaster_title2 = disaster_title2, disaster_content2 = disaster_content2, disaster_title3 = disaster_title3, disaster_content3 = disaster_content3)
- 
-
-# app.run(host="0.0.0.0", port=5001)

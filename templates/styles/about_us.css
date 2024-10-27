@@ -5,17 +5,17 @@ body {
 .tornadoIMG{
     background-color: transparent;
     height: 350px;
-    position: absolute;
-    top: 305px;
-    right: 350px
 }
 
+.about-us-container {
+    padding-top: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .page-content {
     width: 500px;
     text-align: center;
-    position:absolute;
-    top: 225px;
-    left: 350px;
 }
 
 .about-us-title {
