@@ -17,7 +17,7 @@ for tweet in fema_tweets['tweets']:
     data["text"].append(tweet["text"]),
     data["date"].append(tweet["date"]),
 
-json_data = json.dumps(data, indent = 4)
+with open("realData.json", "w") as outfile:
+    json.dump(data, outfile)
 
-print(data)
 
