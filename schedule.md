@@ -1,4 +1,4 @@
-ovidia- API
+Ovidio- API
 - twitter API. By friday night
 
 Ethan- figure out WatsonX
