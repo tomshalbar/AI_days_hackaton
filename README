@@ -4,7 +4,7 @@ Our mission is to ensure life-saving alerts prior to a storm. That’s why we’
 **Judges** Becuase our website is not yet hosted, here are the instructions to get in up on your local computer:
 1) Ensure all necessary python packages are installed
 2) Run web_scraper.py (which will update the raw data JSON with real time data)
-3) Run watsonInteraction.py (which will take in the raw data, and update the processed data JSON with the newly AI generated content)
+3) Run watsonInteraction.py. This could take a couple minutes. (which will take in the raw data, and update the processed data JSON with the newly AI generated content)
 4) Open index.html in a live server.
 
 (or skip steps 1-3 and just open the index.html in a live server. This will give you a website with content that was generated on 10/27/24)
