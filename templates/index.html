@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="30;url=http://127.0.0.1:5001/" /> -->
+    <title>UFence AI - Natural Disaster Response</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/tool-bar.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+          <div><a href="#"><img class="our-logo" src="documents/logo.png"></a></div>
+          <input type="radio" name="slider" id="menu-btn">
+          <input type="radio" name="slider" id="close-btn">
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn"><i class="fas fa-times"></i></label>
+            <li><a href="#">Home</a></li>
+            <li><a href="about_us.html">About</a></li>
+            <li><a href="#">News</a></li>
+          </ul>
+          <label for="menu-btn" class="btn menu-btn"><i class="fas fa-bars"></i></label>
+        </div>
+     </nav>
+    <img class="backgroundIMG" src="documents/background_index.png">
+    <div class="center-logo">
+        <div class="container">
+            <table class="table table--shaded">
+              <thead class="table__head">
+                <tr class="table__row">
+                  <td class="table__cell table__cell--checkbox table__cell--no-wrap">
+                    <input type="checkbox">
+                  </td>
+                  </td>
+                  <td class="UserTable__name table__cell table__cell--no-wrap">Event</td>
+                  <td class="table__cell table__cell--remainder">Description</td>
+                </tr>
+              </thead>
+              <tbody class="table__body">
+                <tr class="table__row">
+                  <td class="table__cell table__cell--checkbox table__cell--no-wrap">
+                    <input type="checkbox">
+                  </td>
+                  <td class="UserTable__name table__cell table__cell--no-wrap">{{disaster_title}}</td>
+                  <td class="table__cell table__cell--remainder">{{disaster_content}}</td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell table__cell--checkbox table__cell--no-wrap">
+                    <input type="checkbox">
+                  </td>
+                  <td class="UserTable__name table__cell">A{{disaster_title2}}</td>
+                  <td class="table__cell table__cell--remainder">{{disaster_content2}}</td>
+                </tr>
+                <tr class="table__row">
+                  <td class="table__cell table__cell--checkbox table__cell--no-wrap">
+                    <input type="checkbox">
+                  </td>
+                  <td class="UserTable__name table__cell table__cell--no-wrap">{{disaster_title3}}</td>
+                  <td class="table__cell table__cell--remainder">{{disaster_content3}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+    <div class="some Response">
+    <p>here is a natural disaster: {{disaster_title}}. This is the status: {{disaster_content}}</p>
+    <p>here is a natural disaster #2: {{disaster_title2}}.  This is the status: {{disaster_content2}}</p>
+    <p>here is a natural disaster #3: {{disaster_title3}}.  This is the status: {{disaster_content3}}</p>
+   </div>
+</body>
+</html>

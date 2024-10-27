@@ -1,0 +1,113 @@
+.backgroundIMG {
+    object-fit:fill;
+    overflow: hidden;
+    object-position: center;
+    margin-top: 50px;
+    height: 1000px;
+    width: 100%;
+}
+
+.center-logo {
+    position: absolute;
+    top: 280px;
+    left: 400px;
+    z-index: 2;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font: font-weight(regular) 14px/1.5 "Roboto", sans-serif;
+}
+
+input {
+  margin: 0;
+}
+
+.container {
+  margin: 24px auto;
+  max-width: 500px;
+  table-layout:fixed;
+}
+
+.table {
+  background-color: rgba(255, 255, 255, .5);
+  font-size: 15px;
+  font-weight: 500;
+  font-family: "Roboto";
+  width: 100%;
+  line-height: 30px;
+  word-wrap:break-word;
+}
+
+.table--bordered {
+  border: 1px solid map-get(black);
+}
+
+.table--shaded {
+  border-bottom: 2px solid #c6d5e3;
+}
+
+.table__head {
+  border-bottom: 2px solid #c6d5e3;
+  color: darken(#c6d5e3, 25%);
+
+  .table--shaded & {
+    background: #f7fafc;
+  }
+}
+
+.table__row {
+  &:not(:last-of-type) {
+    border-bottom: 3px solid black
+  }
+  height: 100px;
+  word-wrap: break-word;
+}
+
+.table__cell {
+  padding: 16px 12px 14px;
+  border: 2px solid black;
+
+
+  .table__head & {
+    padding: 10px 12px 8px;
+  }
+  
+  .table--bordered &:not(:last-of-type) {
+    border-right: 3px solid black
+  }
+  
+  .table__head & {
+    font-weight: font-weight(bold);
+  }
+}
+
+.table__cell--checkbox {
+  min-width: 50px;
+  padding: 16px 0 14px 12px;
+
+  .table__head & {
+    padding: 10px 0 8px 12px;
+  }
+}
+
+
+
+.table__cell--remainder {
+  width: 100%;
+  word-wrap: break-word;
+} 
+
+.UserTable__name {
+  max-width: 200px;
+  word-wrap: break-word;
+}

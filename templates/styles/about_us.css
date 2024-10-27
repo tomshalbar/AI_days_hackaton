@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(48,48,48);
+}
+
+.tornadoIMG{
+    background-color: transparent;
+    height: 350px;
+    position: absolute;
+    top: 305px;
+    right: 350px
+}
+
+.page-content {
+    width: 500px;
+    text-align: center;
+    position:absolute;
+    top: 225px;
+    left: 350px;
+}
+
+.about-us-title {
+
+    font-family: "Roboto";
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 4x;
+    color: rgb(155, 73, 34);
+}
+
+.about-us-content {
+    color:white;
+    padding-top: 50px;
+    font-size: 20px;
+    line-height: 38px;
+}
