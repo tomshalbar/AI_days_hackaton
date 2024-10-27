@@ -8,15 +8,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-
-def watsonResponse() -> dict:
-    #accessing the Watson dataBase and retrieving a generated response
-
-
-    #just a practice JSON, update when twitterAPI is up
-    with open("fake-json-data.json", "r") as json_file:
-        data = json.load(json_file)
-
+def generateWatsonResponse(prompt):
+    #generating a watson response given a prompt  
     credentials = Credentials(
         url = "https://us-south.ml.cloud.ibm.com",
         api_key = "kk-R4zCw_li1eSehAixwX3M15OkVpR0dMLt2AAloX57q",
@@ -24,7 +17,6 @@ def watsonResponse() -> dict:
 
     client = APIClient(credentials)
         
-
     #defining which Watson model to use
     model = ModelInference(
     model_id="ibm/granite-13b-chat-v2",
@@ -38,45 +30,49 @@ def watsonResponse() -> dict:
         "top_p": 0.22,
         "repetition_penalty": 1
     }
-    
     )
+    return model.generate_text(prompt)
 
 
-    #generate responses, and return a JSON
-    response = data["response"]
+def watsonResponse() -> dict:
+
+    with open("realData.json", "r") as json_file:
+        data = json.load(json_file)
+
     probability_json = {}
+    response = data["text"]
     for content in response:
-        disaster = content["title"]
-        prompt = prompt_input = f"""You are an environmental science expert, attempting to distinguish between natural disaster and unrelated news. You will be given a title of a news article. Please say if you think the article is about a natural disaster or not. Keep in mind that a natural is an event that was not caused by human error, or by anything related to humans. so a school shooting is not a natural disaster, and a murder is not a natural disaster. Very important: you can repond in only one word!!
+        prompt = f"""You are an environmental science expert, attempting to distinguish between things that are urgent to tell the public, and things that are not as important. You will be given a text notification sent by a news organization. Please say yes if you beleive that it is urgent that the population should be informed about the event that the text points to, or say no if it is not as important. Very important: you can repond in only one word!!
         Input: Huge fire in california!
         Output: Yes
 
         Input: Burning man festival is on its way!
         Output: No
         
-        Input: {disaster}
+        Input: {content}
         Output:"""
 
-        watsonNonSene = model.generate_text(prompt)
-        realResult = watsonNonSene[:2]
-        probability_json[disaster] = (realResult)
+        event_urgency = generateWatsonResponse(prompt)
+        realResult = event_urgency[:2]
+        probability_json[(data["user"][response.index(content)]["name"])] = realResult
     return (probability_json)
+print(watsonResponse())
 
-def get_watsonResponse():
-    AI_returned_data = watsonResponse()
-    all_disasters_keys = []
-    all_disaster_content = []
-    for disaster, content in AI_returned_data.items():
-        if content == " y" or content == " Y":
-            all_disasters_keys.append(disaster)
-            all_disaster_content.append(content)
-    return all_disasters_keys[0], all_disaster_content[0], all_disasters_keys[1], all_disaster_content[1], all_disasters_keys[2], all_disaster_content[2]
+# def get_watsonResponse():
+#     AI_returned_data = watsonResponse()
+#     all_disasters_keys = []
+#     all_disaster_content = []
+#     for disaster, content in AI_returned_data.items():
+#         if content == " y" or content == " Y":
+#             all_disasters_keys.append(disaster)
+#             all_disaster_content.append(content)
+#     return all_disasters_keys[0], all_disaster_content[0], all_disasters_keys[1], all_disaster_content[1], all_disasters_keys[2], all_disaster_content[2]
 
 
-@app.route("/")
-def index():
-    disaster_title, disaster_content, disaster_title2, disaster_content2 , disaster_title3, disaster_content3= get_watsonResponse()
-    return render_template("index.html", disaster_title = disaster_title, disaster_content = disaster_content, disaster_title2 = disaster_title2, disaster_content2 = disaster_content2, disaster_title3 = disaster_title3, disaster_content3 = disaster_content3)
+# @app.route("/")
+# def index():
+#     disaster_title, disaster_content, disaster_title2, disaster_content2 , disaster_title3, disaster_content3= get_watsonResponse()
+#     return render_template("index.html", disaster_title = disaster_title, disaster_content = disaster_content, disaster_title2 = disaster_title2, disaster_content2 = disaster_content2, disaster_title3 = disaster_title3, disaster_content3 = disaster_content3)
  
 
-app.run(host="0.0.0.0", port=5001)
+# app.run(host="0.0.0.0", port=5001)
