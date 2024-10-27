@@ -1,7 +1,5 @@
 from ntscraper import Nitter
 import json
-import urllib.parse
-import requests
 
 scraper = Nitter(log_level = 1, skip_instance_check = False);
 
