@@ -12,7 +12,7 @@ def generateWatsonResponse(prompt):
     #generating a watson response given a prompt  
     credentials = Credentials(
         url = "https://us-south.ml.cloud.ibm.com",
-        api_key = "kk-R4zCw_li1eSehAixwX3M15OkVpR0dMLt2AAloX57q",
+        api_key = //insert own API key
     )
 
     client = APIClient(credentials)
