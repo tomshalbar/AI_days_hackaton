@@ -3,8 +3,9 @@ Our mission is to ensure life-saving alerts prior to a storm. That’s why we’
 
 **Judges** Becuase our website is not yet hosted, here are the instructions to get in up on your local computer:
 1) Ensure all necessary python packages are installed (pip install ntscraper, tweepy, ibm-watsonx-ai)
-2) Run main.py (which will start updating the content of the website every 5 minutes)
-3) cd to the Website folder, then execute python -m http.server
-4) navigate to localhost:8000 
+2) Insert your API and token keys into the designated sports (marked with a comment) in twitter_API.py and into watsonInteraction.py. 
+3) Run main.py (which will start updating the content of the website every 5 minutes)
+4) cd to the Website folder, then execute python -m http.server
+5) navigate to localhost:8000 
 
 (Or just open the index.html in a live server. This will give you a website with content that was generated on 10/27/24)
